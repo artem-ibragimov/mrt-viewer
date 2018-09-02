@@ -7,14 +7,14 @@ author: baevatm
 excerpt:
 tags: [timemanagement]
 image:
-  feature:
-talk: meetup5
-date: 2015-05-27T19:00:00+04:00
+feature:
+talk: meetup_u4
+date: 2018-09-20
 comments: true
 share: true
 announce: 
-video: -mx5RmTIQok
-slides: key/oW5amOKEssTleE
+video:
+slides:
 ---
 
 Когда человек только начинает работать, задач у него совсем немного и справиться с ними за день довольно легко. 
