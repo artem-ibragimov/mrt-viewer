@@ -1,5 +1,5 @@
-# Ufa Tensor Forum
+# Rybinsk Tensor Forum
 
-Ежемесячная встреча разработчиков проходящая в г. Уфа.
+Ежемесячная встреча разработчиков проходящая в г. Рыбинск.
 
-[http://conf.tensor.ru](http://conf.tensor.ru/)
+[http://rtf.tensor.ru](http://rtf.tensor.ru/)
