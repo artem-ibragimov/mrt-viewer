@@ -57,17 +57,6 @@ comments: true
 <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acd52f8c116e73c39bb701429ca0e459d78ce8793e4e75da7c77b2f9773f0cddc&amp;width=687&amp;height=502&amp;lang=ru_RU&amp;scroll=true"></script>
 
 
-Цель
----
-
-Создать ИТ –площадку в Рыбинске для регулярного неформального общения разработчиков. Мы ищем единомышленников, объединенных “по технологическому признаку”, занимающихся разработкой (JavaScript, HTML, CSS, Python, SQL и т.д.).
-
-Формат
----
-
-Тематические встречи, каждая из которых состоит из 3-4 докладов (по 20-30 минут). После мероприятия традиционно устраиваем неформальное общение для обсуждения затронутых тем и других направлений.
-
-
 <!--
 <ul class="post-list">
 {% for post in site.posts limit:10 %}
