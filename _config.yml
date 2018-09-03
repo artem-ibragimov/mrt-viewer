@@ -1,11 +1,11 @@
 # Site wide configuration
 
-title: Ufa Tensor Forum
+title: Rybinsk Tensor Forum
 locale: ru_RU
-description: Место встречи уфимских разработчиков
+description: Место встречи рыбинских разработчиков
 logo: logo.png
 search: true
-url: http://conf.tensor.ru/
+url: http://rtf.tensor.ru/
 url:
 
 
