@@ -66,6 +66,6 @@ comments: true
 -->
 
 [register]: /register/
-[place]: http://territory3000.ru/
+[place]: http://rybinsk.vikonda.ru/
 [tensor]: http://tensor.ru/
 [speakers]: /speakers/

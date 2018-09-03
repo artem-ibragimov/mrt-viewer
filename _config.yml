@@ -33,10 +33,10 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 # Site owner
 owner:
-  name: Ufa Tensor Forum
+  name: Rybinsk Tensor Forum
   avatar: bio-photo.jpg
   email: hekusoid@gmail.com
-  disqus-shortname: tensor-ufa
+  disqus-shortname: tensor-rybinsk
   github:
   stackexchange: 
   linkedin: #username
@@ -46,4 +46,3 @@ owner:
     analytics: UA-78951182-1
   tumblr: #username
   bing-verify:
-theme: jekyll-theme-hacker
