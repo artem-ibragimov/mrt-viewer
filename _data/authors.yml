@@ -1,41 +1,5 @@
 # Authors
 
-khamitov_kirill:
-  name: Хамитов Кирилл
-  email: hekusoid@gmail.com
-  avatar: hekus.png
-  company: Тензор Уфа
-  
-bogatirev_misha:
-  name: Богатырев Михаил
-  email: ma.bogatyrev@tensor.ru
-  avatar: misha.png
-  company: Тензор Уфа
-
-potykov_vitaliy:
-  name: Потяков Виталий
-  email: vs.potyakov@tensor.ru
-  avatar: vitaliy.png
-  company: Тензор Уфа
-
-yakovlev_kirill:
-  name: Яковлев Кирилл
-  email: kv.yskovlev@tensor.ru
-  avatar: yakovlev.png
-  company: Тензор Уфа
-
-kazorez_alexander:
-  name: Казорез Александр
-  email: akazorez@yandex.ru
-  avatar: kazorez.png
-  company: Тензор Уфа
-
-gataullina_galiya:
-  name: Гатауллина Галия
-  email: ga.gataullina@tensor.ru
-  avatar: galiya.jpg
-  company: Тензор Уфа
-  
 zuev_dmitry:
   name: Зуев Дмитрий
   email: dv.zuev@tensor.ru
@@ -47,19 +11,12 @@ izygin_nikita:
   email: nr.izygin@tensor.ru
   avatar: izygin.png
   company: Тензор Ярославль
-  
-faizrahmanov_zagir:
-  name: Файзрахманов Загир
-  email: zr.fayzrahmanov@tensor.ru
-  avatar: zagir.png
-  company: Тензор Уфа  
-  
-vagurov_evgeniy:
-  name: Вагуров Евгений
-  email: es.vagurov@tensor.ru
-  avatar: vagurov.png
-  company: Тензор Екатеринбург  
-  
+
+ baevatm:
+   name: Баева Татьяна
+   avatar: baeva.jpg
+   company: Тензор Ярославль
+   twitter: BaevaTatyana  
 
 # elifantiev_oleg:
   # name: Олег Елифантьев
@@ -200,3 +157,50 @@ vagurov_evgeniy:
   # name: Владимир Лусс
   # avatar: luss.jpg
   # company: Тензор Ярославль
+  # khamitov_kirill:
+  # name: Хамитов Кирилл
+  # email: hekusoid@gmail.com
+  # avatar: hekus.png
+  # company: Тензор Уфа
+  
+# bogatirev_misha:
+  # name: Богатырев Михаил
+  # email: ma.bogatyrev@tensor.ru
+  # avatar: misha.png
+  # company: Тензор Уфа
+
+# potykov_vitaliy:
+  # name: Потяков Виталий
+  # email: vs.potyakov@tensor.ru
+  # avatar: vitaliy.png
+  # company: Тензор Уфа
+
+# yakovlev_kirill:
+  # name: Яковлев Кирилл
+  # email: kv.yskovlev@tensor.ru
+  # avatar: yakovlev.png
+  # company: Тензор Уфа
+
+# kazorez_alexander:
+  # name: Казорез Александр
+  # email: akazorez@yandex.ru
+  # avatar: kazorez.png
+  # company: Тензор Уфа
+
+# gataullina_galiya:
+  # name: Гатауллина Галия
+  # email: ga.gataullina@tensor.ru
+  # avatar: galiya.jpg
+  # company: Тензор Уфа
+  
+# faizrahmanov_zagir:
+  # name: Файзрахманов Загир
+  # email: zr.fayzrahmanov@tensor.ru
+  # avatar: zagir.png
+  # company: Тензор Уфа  
+  
+# vagurov_evgeniy:
+  # name: Вагуров Евгений
+  # email: es.vagurov@tensor.ru
+  # avatar: vagurov.png
+  # company: Тензор Екатеринбург    
