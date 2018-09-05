@@ -1,5 +1,6 @@
 ---
-layout: no-title-post
+layout: page
+title:  
 excerpt: 
 modified: 2014-08-08T19:44:38.564948-04:00
 comments: true
