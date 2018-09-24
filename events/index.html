@@ -1,0 +1,176 @@
+<!DOCTYPE  html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>doc</title>
+    <style>
+      /*github.com style (c) Vasily Polovnyov <vast@whiteants.net>*/
+      pre code {
+        display: block; padding: 0.5em;
+        color: #333;
+        background: #f8f8ff
+      }
+      pre .comment,
+      pre .template_comment,
+      pre .diff .header,
+      pre .javadoc {
+        color: #998;
+        font-style: italic
+      }
+      pre .keyword,
+      pre .css .rule .keyword,
+      pre .winutils,
+      pre .javascript .title,
+      pre .nginx .title,
+      pre .subst,
+      pre .request,
+      pre .status {
+        color: #333;
+        font-weight: bold
+      }
+      pre .number,
+      pre .hexcolor,
+      pre .ruby .constant {
+        color: #099;
+      }
+      pre .string,
+      pre .tag .value,
+      pre .phpdoc,
+      pre .tex .formula {
+        color: #d14
+      }
+      pre .title,
+      pre .id {
+        color: #900;
+        font-weight: bold
+      }
+      pre .javascript .title,
+      pre .lisp .title,
+      pre .clojure .title,
+      pre .subst {
+        font-weight: normal
+      }
+      pre .class .title,
+      pre .haskell .type,
+      pre .vhdl .literal,
+      pre .tex .command {
+        color: #458;
+        font-weight: bold
+      }
+      pre .tag,
+      pre .tag .title,
+      pre .rules .property,
+      pre .django .tag .keyword {
+        color: #000080;
+        font-weight: normal
+      }
+      pre .attribute,
+      pre .variable,
+      pre .lisp .body {
+        color: #008080
+      }
+      pre .regexp {
+        color: #009926
+      }
+      pre .class {
+        color: #458;
+        font-weight: bold
+      }
+      pre .symbol,
+      pre .ruby .symbol .string,
+      pre .lisp .keyword,
+      pre .tex .special,
+      pre .prompt {
+        color: #990073
+      }
+      pre .built_in,
+      pre .lisp .title,
+      pre .clojure .built_in {
+        color: #0086b3
+      }
+      pre .preprocessor,
+      pre .pi,
+      pre .doctype,
+      pre .shebang,
+      pre .cdata {
+        color: #999;
+        font-weight: bold
+      }
+      pre .deletion {
+        background: #fdd
+      }
+      pre .addition {
+        background: #dfd
+      }
+      pre .diff .change {
+        background: #0086b3
+      }
+      pre .chunk {
+        color: #aaa
+      }
+    </style>
+  </head>
+  <body>  
+    <hr>
+<p>layout: page
+title: Встречи</p>
+<h2 id="comments-true">comments: true</h2>
+<div>
+{% for data in site.data.talks %}
+   {% assign meetupid = data[0] %}
+   {% assign meetup = data[1] %}
+
+   {% if meetup.finished %}
+
+   {% capture talklist %}
+      {% for post in site.posts %}
+         {% if post.talk == meetupid %}
+            {% if post.author %}
+               {% assign author = site.data.authors[post.author] %}
+            {% endif %}
+            <li>
+               <a href="{{ site.url }}{{ post.url }}">
+                  {{ post.title }}.<br/>{% if author %} {{ author.name }}{% if author.company %}, {{ author.company }}{% endif %}{% endif %}
+               </a>
+            </li>
+         {% endif %}
+      {% endfor %}
+   {% endcapture %}
+
+   {% if talklist.size &gt; 0 %}
+   <h2>
+      {{ meetup.date | date: &quot;%-d&quot; }}
+      {% assign m = meetup.date | date: &quot;%-m&quot; %}
+      {% case m %}
+         {% when &#39;1&#39; %}января
+         {% when &#39;2&#39; %}февраля
+         {% when &#39;3&#39; %}марта
+         {% when &#39;4&#39; %}апреля
+         {% when &#39;5&#39; %}мая
+         {% when &#39;6&#39; %}июня
+         {% when &#39;7&#39; %}июля
+         {% when &#39;8&#39; %}августа
+         {% when &#39;9&#39; %}сентября
+         {% when &#39;10&#39; %}октября
+         {% when &#39;11&#39; %}ноября
+         {% when &#39;12&#39; %}декабря
+      {% endcase %}
+      {{ meetup.date | date: &quot;%Y&quot; }}
+    </h2>
+    {% if meetup.info %}
+      <p>{{ meetup.info }}</p>
+      {% endif %}
+      {{ meetup.foto }}
+      <h3>Доклады</h3>
+      <ul class="post-list">
+         {{ talklist }}
+      </ul>
+    {% endif %}
+
+    {% endif %}
+{% endfor %}
+</div>
+
+  </body>
+</html>

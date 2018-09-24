@@ -1,0 +1,162 @@
+<!DOCTYPE  html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>doc</title>
+    <style>
+      /*github.com style (c) Vasily Polovnyov <vast@whiteants.net>*/
+      pre code {
+        display: block; padding: 0.5em;
+        color: #333;
+        background: #f8f8ff
+      }
+      pre .comment,
+      pre .template_comment,
+      pre .diff .header,
+      pre .javadoc {
+        color: #998;
+        font-style: italic
+      }
+      pre .keyword,
+      pre .css .rule .keyword,
+      pre .winutils,
+      pre .javascript .title,
+      pre .nginx .title,
+      pre .subst,
+      pre .request,
+      pre .status {
+        color: #333;
+        font-weight: bold
+      }
+      pre .number,
+      pre .hexcolor,
+      pre .ruby .constant {
+        color: #099;
+      }
+      pre .string,
+      pre .tag .value,
+      pre .phpdoc,
+      pre .tex .formula {
+        color: #d14
+      }
+      pre .title,
+      pre .id {
+        color: #900;
+        font-weight: bold
+      }
+      pre .javascript .title,
+      pre .lisp .title,
+      pre .clojure .title,
+      pre .subst {
+        font-weight: normal
+      }
+      pre .class .title,
+      pre .haskell .type,
+      pre .vhdl .literal,
+      pre .tex .command {
+        color: #458;
+        font-weight: bold
+      }
+      pre .tag,
+      pre .tag .title,
+      pre .rules .property,
+      pre .django .tag .keyword {
+        color: #000080;
+        font-weight: normal
+      }
+      pre .attribute,
+      pre .variable,
+      pre .lisp .body {
+        color: #008080
+      }
+      pre .regexp {
+        color: #009926
+      }
+      pre .class {
+        color: #458;
+        font-weight: bold
+      }
+      pre .symbol,
+      pre .ruby .symbol .string,
+      pre .lisp .keyword,
+      pre .tex .special,
+      pre .prompt {
+        color: #990073
+      }
+      pre .built_in,
+      pre .lisp .title,
+      pre .clojure .built_in {
+        color: #0086b3
+      }
+      pre .preprocessor,
+      pre .pi,
+      pre .doctype,
+      pre .shebang,
+      pre .cdata {
+        color: #999;
+        font-weight: bold
+      }
+      pre .deletion {
+        background: #fdd
+      }
+      pre .addition {
+        background: #dfd
+      }
+      pre .diff .change {
+        background: #0086b3
+      }
+      pre .chunk {
+        color: #aaa
+      }
+    </style>
+  </head>
+  <body>  
+    <hr>
+<p>layout: page
+title: 20 сентября 2018
+excerpt:</p>
+<h2 id="comments-true">comments: true</h2>
+<p>Мы расскажем, как уместили в одном решении 20 различных приложений, которыми пользуется каждая  2-я российская  компания!  А  также,  как добились высокого  коэффициента «переиспользования» кода... Научим, как расставить приоритеты и выполнить все задачи в срок в условиях многозадачности!</p>
+<p>Ведущие JS разработчики компании «Тензор» поделятся уникальным опытом на RTF 18!</p>
+<p><a href="/register/"><strong>Регистрируйся</strong></a> и приходи – мы ждем тебя!</p>
+<h2 id="-">Доклады</h2>
+<ul class="post-list">
+{% for post in site.categories.talks %}
+  {% if post.author %}
+    {% capture authorslist %}
+      {% for a in post.author %}
+        {% assign author = site.data.authors[a] %}
+        {% if author %} {{ author.name }}{% if author.company %}, {{ author.company }}{% endif %}{% endif %}{% unless forloop.last %};{% endunless %}
+      {% endfor %}
+    {% endcapture %}
+  {% endif %}
+  {% if post.announce %}
+  <li><a href="{{ site.url }}{{ post.url }}"><b>{{ post.title }}</b><br/>{{ authorslist }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+<h2 id="-">Когда</h2>
+<p>Итак, 20 сентября в 18:30 состоится первая встреча программистов в рамках RTF – 2018. На все доклады  отведено  3  часа. Между  выступлениями  запланирован  кофе-брейк, чтобы  вы  могли перекусить. Для первых 30-ти зарегистрировавшихся after-party за счет компании!</p>
+<p>Дата: 20/09/2018, четверг.</p>
+<p>Время: с 18.30 до 21.30.</p>
+<p><strong>Вход – free.</strong></p>
+<h2 id="-">Где</h2>
+<p>Встреча пройдет в ТРЦ «VIKONDA», Вход через отель, 1 этаж. По адресу: г. Рыбинск, Бабушкина 29.</p>
+<p>Маршрут от остановки общественного транспорта указан на карте.</p>
+<p>Места для парковки автомобилей указаны на карте зеленым цветом.</p>
+<p>Контактные телефоны: +7(920) 653-51-73 Полина</p>
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acd52f8c116e73c39bb701429ca0e459d78ce8793e4e75da7c77b2f9773f0cddc&amp;width=687&amp;height=502&amp;lang=ru_RU&amp;scroll=true"></script>
+
+
+<!--
+<ul class="post-list">
+{% for post in site.posts limit:10 %}
+  <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
+{% endfor %}
+</ul>
+-->
+
+  </body>
+</html>
