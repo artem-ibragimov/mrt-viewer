@@ -1,5 +1,5 @@
-# Rybinsk Tensor Forum
+# Kazan Tensor Forum
 
-Встреча разработчиков проходящая в г. Рыбинск.
+Встреча разработчиков в г. Казань.
 
-[http://rtf.tensor.ru](http://rtf.tensor.ru/)
+[http://kzn.tensor.ru](http://kzn.tensor.ru/)

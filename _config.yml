@@ -1,11 +1,11 @@
 # Site wide configuration
 
-title: Rybinsk Tensor Forum
+title: Kazan Tensor Forum
 locale: ru_RU
-description: Первая встреча рыбинских разработчиков в формате конференции TensorForum
+description: Втораявстреча казанских разработчиков
 logo: logo.png
 search: true
-url: http://rtf.tensor.ru/
+url: http://kzn.tensor.ru/
 url:
 
 
@@ -33,7 +33,7 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 # Site owner
 owner:
-  name: Rybinsk Tensor Forum
+  name: Kazan Tensor Forum
   avatar: bio-photo.jpg
   email: hekusoid@gmail.com
   disqus-shortname: tensor-rybinsk
