@@ -51,7 +51,7 @@ __Вход – free.__
 Маршрут от остановки общественного транспорта указан на карте.
 Места для парковки автомобилей указаны на карте зеленым цветом.
 
-<script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":55.791570974424694,"lon":49.11406874656678,"zoom":16},"opt":{"city":"kazan"},"org":[{"id":"70000001018741959"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae4c13f764a4abf7e58554f2ddabe53703db719949ac4646f163a80e67faeeadc&amp;width=800&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
 
 __Контактные телефоны: +7 (951) 067-12-77 Ангелина__
 <!--<ul class="post-list">
@@ -61,6 +61,6 @@ __Контактные телефоны: +7 (951) 067-12-77 Ангелина__
 </ul>-->
 
 [register]: /register/
-[place]: https://kompaniya-tenzor-events.timepad.ru/event/814956/
-[tensor]: http://tensor.ru/
+[place]:    https://kompaniya-tenzor-events.timepad.ru/event/814956/
+[tensor]:   http://tensor.ru/
 [speakers]: /speakers/
