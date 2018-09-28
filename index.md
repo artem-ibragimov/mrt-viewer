@@ -38,7 +38,7 @@ comments: true
 Между выступлениями запланирован 10-минутный кофе-брейк, чтобы вы могли перекусить.
 Для первых 30-ти зарегистрировавшихся after-party за счет компании!))
 
-Дата: 17/10/2018, четверг.
+Дата: 17/10/2018, среда.
 Время: с 18.30 до 21.30.
 
 __Вход – free.__
@@ -47,14 +47,13 @@ __Вход – free.__
 Где
 ---
 
-Встреча пройдет по адресу: г. Казань.
+Встреча пройдет по адресу: г. Казань, ул. Профсоюзная, 16 Б.
 Маршрут от остановки общественного транспорта указан на карте.
 Места для парковки автомобилей указаны на карте зеленым цветом.
-Контактные телефоны: +7(951) 067-12-77 Ангелина
 
-<script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":55.7904852342518,"lon":49.1060221195221,"zoom":16},"opt":{"city":"kazan"},"org":[{"id":"70000001018552020"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+<script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":55.791570974424694,"lon":49.11406874656678,"zoom":16},"opt":{"city":"kazan"},"org":[{"id":"70000001018741959"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
 
-
+__Контактные телефоны: +7 (951) 067-12-77 Ангелина__
 <!--
 <ul class="post-list">
 {% for post in site.posts limit:10 %}
