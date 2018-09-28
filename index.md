@@ -54,15 +54,13 @@ __Вход – free.__
 <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":55.791570974424694,"lon":49.11406874656678,"zoom":16},"opt":{"city":"kazan"},"org":[{"id":"70000001018741959"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
 
 __Контактные телефоны: +7 (951) 067-12-77 Ангелина__
-<!--
-<ul class="post-list">
+<!--<ul class="post-list">
 {% for post in site.posts limit:10 %}
   <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
 {% endfor %}
-</ul>
--->
+</ul>-->
 
 [register]: /register/
-[place]: http://rybinsk.vikonda.ru/
+[place]: https://kompaniya-tenzor-events.timepad.ru/event/814956/
 [tensor]: http://tensor.ru/
 [speakers]: /speakers/
