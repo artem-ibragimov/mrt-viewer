@@ -54,11 +54,6 @@ __Вход – free.__
 <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae4c13f764a4abf7e58554f2ddabe53703db719949ac4646f163a80e67faeeadc&amp;width=800&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
 
 __Контактные телефоны: +7 (951) 067-12-77 Ангелина__
-<!--<ul class="post-list">
-{% for post in site.posts limit:10 %}
-  <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
-{% endfor %}
-</ul>-->
 
 [register]: /register/
 [place]:    https://kompaniya-tenzor-events.timepad.ru/event/814956/
