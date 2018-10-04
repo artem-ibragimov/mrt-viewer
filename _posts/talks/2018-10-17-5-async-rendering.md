@@ -1,6 +1,6 @@
 ---
 layout: talk
-title: "Асинхронный рендеринг компонентов. Когда стоит подождать?"
+title: "Асинхронный рендеринг компонентов. Когда стоит подождать"
 modified:
 categories: talks
 author: zuev_dmitry
