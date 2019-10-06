@@ -64,7 +64,7 @@ module.exports = __webpack_require__(/*! core-js/library/fn/promise */ "./node_m
 
 var _Promise = __webpack_require__(/*! ../core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+function asyncGeneratorStep(gen, resolve, reject, src, _throw, key, arg) {
   try {
     var info = gen[key](arg);
     var value = info.value;
@@ -76,7 +76,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   if (info.done) {
     resolve(value);
   } else {
-    _Promise.resolve(value).then(_next, _throw);
+    _Promise.resolve(value).then(src, _throw);
   }
 }
 
@@ -87,15 +87,15 @@ function _asyncToGenerator(fn) {
     return new _Promise(function (resolve, reject) {
       var gen = fn.apply(self, args);
 
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      function src(value) {
+        asyncGeneratorStep(gen, resolve, reject, src, _throw, "next", value);
       }
 
       function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+        asyncGeneratorStep(gen, resolve, reject, src, _throw, "throw", err);
       }
 
-      _next(undefined);
+      src(undefined);
     });
   };
 }
@@ -2363,7 +2363,7 @@ let mostRecentHash = null;
 /* eslint-disable-next-line */
 
 let curHash = __webpack_require__.h();
-const hotUpdatePath = assetPrefix + (assetPrefix.endsWith('/') ? '' : '/') + '_next/static/webpack/'; // Is there a newer version of this code available?
+const hotUpdatePath = assetPrefix + (assetPrefix.endsWith('/') ? '' : '/') + 'src/static/webpack/'; // Is there a newer version of this code available?
 
 function isUpdateAvailable() {
   // __webpack_hash__ is the hash of the current compilation.
@@ -2412,7 +2412,7 @@ function _tryApplyUpdates() {
 }
 
 (0, _eventsource.getEventSourceWrapper)({
-  path: assetPrefix + "/_next/webpack-hmr"
+  path: assetPrefix + "/src/webpack-hmr"
 }).addMessageListener(event => {
   if (event.data === '\uD83D\uDC93') {
     return;
@@ -3520,7 +3520,7 @@ function setupPing(assetPrefix, pathnameFn, retry) {
   exports.currentPage = currentPage = pathname; // close current EventSource connection
 
   closePing();
-  const url = assetPrefix + "/_next/webpack-hmr?page=" + currentPage;
+  const url = assetPrefix + "/src/webpack-hmr?page=" + currentPage;
   evtSource = (0, _eventsource.getEventSourceWrapper)({
     path: url,
     timeout: 5000,

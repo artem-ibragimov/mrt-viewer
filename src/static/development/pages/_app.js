@@ -75,7 +75,7 @@ module.exports = __webpack_require__(/*! core-js/library/fn/promise */ "./node_m
 
 var _Promise = __webpack_require__(/*! ../core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+function asyncGeneratorStep(gen, resolve, reject, src, _throw, key, arg) {
   try {
     var info = gen[key](arg);
     var value = info.value;
@@ -87,7 +87,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   if (info.done) {
     resolve(value);
   } else {
-    _Promise.resolve(value).then(_next, _throw);
+    _Promise.resolve(value).then(src, _throw);
   }
 }
 
@@ -98,15 +98,15 @@ function _asyncToGenerator(fn) {
     return new _Promise(function (resolve, reject) {
       var gen = fn.apply(self, args);
 
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      function src(value) {
+        asyncGeneratorStep(gen, resolve, reject, src, _throw, "next", value);
       }
 
       function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+        asyncGeneratorStep(gen, resolve, reject, src, _throw, "throw", err);
       }
 
-      _next(undefined);
+      src(undefined);
     });
   };
 }
