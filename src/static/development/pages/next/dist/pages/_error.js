@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\next\\dist\\pages\\_error.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\next\\dist\\pages\\error.js"],{
 
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
@@ -1974,13 +1974,13 @@ for (var i = 0; i < DOMIterables.length; i++) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/next/dist/pages/_error", function() {
-      var mod = __webpack_require__(/*! ./node_modules/next/dist/pages/_error.js */ "./node_modules/next/dist/pages/_error.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/next/dist/pages/error", function() {
+      var mod = __webpack_require__(/*! ./node_modules/next/dist/pages/error.js */ "./node_modules/next/dist/pages/error.js")
       if(true) {
-        module.hot.accept(/*! ./node_modules/next/dist/pages/_error.js */ "./node_modules/next/dist/pages/_error.js", function() {
-          if(!next.router.components["/next/dist/pages/_error"]) return
-          var updatedPage = __webpack_require__(/*! ./node_modules/next/dist/pages/_error.js */ "./node_modules/next/dist/pages/_error.js")
-          next.router.update("/next/dist/pages/_error", updatedPage)
+        module.hot.accept(/*! ./node_modules/next/dist/pages/error.js */ "./node_modules/next/dist/pages/error.js", function() {
+          if(!next.router.components["/next/dist/pages/error"]) return
+          var updatedPage = __webpack_require__(/*! ./node_modules/next/dist/pages/error.js */ "./node_modules/next/dist/pages/error.js")
+          next.router.update("/next/dist/pages/error", updatedPage)
         })
       }
       return mod
@@ -2330,9 +2330,9 @@ exports.default = () => {
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/pages/_error.js":
+/***/ "./node_modules/next/dist/pages/error.js":
 /*!************************************************!*\
-  !*** ./node_modules/next/dist/pages/_error.js ***!
+  !*** ./node_modules/next/dist/pages/error.js ***!
   \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2470,4 +2470,4 @@ module.exports = dll_129a35c7ec57967eb265;
 /***/ })
 
 },[[1,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=_error.js.map
+//# sourceMappingURL=error.js.map

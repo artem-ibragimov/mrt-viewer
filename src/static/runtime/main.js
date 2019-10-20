@@ -5560,7 +5560,7 @@ function () {
       webpackHMR = passedWebpackHMR;
     }
 
-    App = yield pageLoader.loadPage('/_app');
+    App = yield pageLoader.loadPage('/app');
     let initialErr = err;
 
     try {
@@ -5668,7 +5668,7 @@ function _renderError() {
 
 
     console.error(err);
-    exports.ErrorComponent = ErrorComponent = yield pageLoader.loadPage('/_error'); // In production we do a normal render with the `ErrorComponent` as component.
+    exports.ErrorComponent = ErrorComponent = yield pageLoader.loadPage('/error'); // In production we do a normal render with the `ErrorComponent` as component.
     // If we've gotten here upon initial render, we can use the props from the server.
     // Otherwise, we need to call `getInitialProps` on `App` before mounting.
 
@@ -6740,7 +6740,7 @@ class Router {
     // Otherwise, this cause issues when when going back and
     // come again to the errored page.
 
-    if (pathname !== '/_error') {
+    if (pathname !== '/error') {
       this.components[this.route] = {
         Component,
         props: initialProps,
@@ -6748,7 +6748,7 @@ class Router {
       };
     }
 
-    this.components['/_app'] = {
+    this.components['/app'] = {
       Component: App
     }; // Backwards compat for Router.router.events
     // TODO: Should be remove the following major version as it was never documented
@@ -6808,9 +6808,9 @@ class Router {
       Component
     });
 
-    this.components[route] = newData; // pages/_app.js updated
+    this.components[route] = newData; // pages/app.js updated
 
-    if (route === '/_app') {
+    if (route === '/app') {
       this.notify(this.components[this.route]);
       return;
     }
@@ -6946,7 +6946,7 @@ class Router {
         const hash = window.location.hash.substring(1);
 
         if (true) {
-          const appComp = this.components['/_app'].Component;
+          const appComp = this.components['/app'].Component;
           window.next.isPrerendered = appComp.getInitialProps === appComp.origGetInitialProps && !routeInfo.Component.getInitialProps;
         } // @ts-ignore pathname is always defined
 
@@ -7058,7 +7058,7 @@ class Router {
           });
         }
 
-        resolve(this.fetchComponent('/_error').then(Component => {
+        resolve(this.fetchComponent('/error').then(Component => {
           const routeInfo = {
             Component,
             err
@@ -7212,7 +7212,7 @@ class Router {
     this.clc = cancel;
     const {
       Component: App
-    } = this.components['/_app'];
+    } = this.components['/app'];
     let props;
 
     if ( // @ts-ignore workaround for dead-code elimination
@@ -7279,7 +7279,7 @@ class Router {
   }
 
   notify(data) {
-    this.sub(data, this.components['/_app'].Component);
+    this.sub(data, this.components['/app'].Component);
   }
 
 }
@@ -7502,7 +7502,7 @@ async function loadGetInitialProps(Component, ctx) {
       const message = "\"".concat(getDisplayName(Component), ".getInitialProps()\" is defined as an instance method - visit https://err.sh/zeit/next.js/get-initial-props-as-an-instance-method for more information.");
       throw new Error(message);
     }
-  } // when called from _app `ctx` is nested in `ctx`
+  } // when called from app `ctx` is nested in `ctx`
 
 
   const res = ctx.res || ctx.ctx && ctx.ctx.res;

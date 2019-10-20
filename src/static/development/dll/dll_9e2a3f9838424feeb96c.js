@@ -22901,8 +22901,8 @@ function commitRootImpl(root, renderPriorityLevel) {
               }
             }
           })();
-          var _error = clearCaughtError();
-          captureCommitPhaseError(nextEffect, _error);
+          var error = clearCaughtError();
+          captureCommitPhaseError(nextEffect, error);
           nextEffect = nextEffect.nextEffect;
         }
       }

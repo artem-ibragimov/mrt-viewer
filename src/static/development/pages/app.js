@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\_app.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\app.js"],{
 
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js":
 /*!**********************************************************************!*\
@@ -2490,13 +2490,13 @@ for (var i = 0; i < DOMIterables.length; i++) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/_app", function() {
-      var mod = __webpack_require__(/*! next/dist/pages/_app */ "./node_modules/next/dist/pages/_app.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/app", function() {
+      var mod = __webpack_require__(/*! next/dist/pages/app */ "./node_modules/next/dist/pages/app.js")
       if(true) {
-        module.hot.accept(/*! next/dist/pages/_app */ "./node_modules/next/dist/pages/_app.js", function() {
-          if(!next.router.components["/_app"]) return
-          var updatedPage = __webpack_require__(/*! next/dist/pages/_app */ "./node_modules/next/dist/pages/_app.js")
-          next.router.update("/_app", updatedPage)
+        module.hot.accept(/*! next/dist/pages/app */ "./node_modules/next/dist/pages/app.js", function() {
+          if(!next.router.components["/app"]) return
+          var updatedPage = __webpack_require__(/*! next/dist/pages/app */ "./node_modules/next/dist/pages/app.js")
+          next.router.update("/app", updatedPage)
         })
       }
       return mod
@@ -2957,7 +2957,7 @@ class Router {
     // Otherwise, this cause issues when when going back and
     // come again to the errored page.
 
-    if (pathname !== '/_error') {
+    if (pathname !== '/error') {
       this.components[this.route] = {
         Component,
         props: initialProps,
@@ -2965,7 +2965,7 @@ class Router {
       };
     }
 
-    this.components['/_app'] = {
+    this.components['/app'] = {
       Component: App
     }; // Backwards compat for Router.router.events
     // TODO: Should be remove the following major version as it was never documented
@@ -3025,9 +3025,9 @@ class Router {
       Component
     });
 
-    this.components[route] = newData; // pages/_app.js updated
+    this.components[route] = newData; // pages/app.js updated
 
-    if (route === '/_app') {
+    if (route === '/app') {
       this.notify(this.components[this.route]);
       return;
     }
@@ -3163,7 +3163,7 @@ class Router {
         const hash = window.location.hash.substring(1);
 
         if (true) {
-          const appComp = this.components['/_app'].Component;
+          const appComp = this.components['/app'].Component;
           window.next.isPrerendered = appComp.getInitialProps === appComp.origGetInitialProps && !routeInfo.Component.getInitialProps;
         } // @ts-ignore pathname is always defined
 
@@ -3275,7 +3275,7 @@ class Router {
           });
         }
 
-        resolve(this.fetchComponent('/_error').then(Component => {
+        resolve(this.fetchComponent('/error').then(Component => {
           const routeInfo = {
             Component,
             err
@@ -3429,7 +3429,7 @@ class Router {
     this.clc = cancel;
     const {
       Component: App
-    } = this.components['/_app'];
+    } = this.components['/app'];
     let props;
 
     if ( // @ts-ignore workaround for dead-code elimination
@@ -3496,7 +3496,7 @@ class Router {
   }
 
   notify(data) {
-    this.sub(data, this.components['/_app'].Component);
+    this.sub(data, this.components['/app'].Component);
   }
 
 }
@@ -3689,7 +3689,7 @@ async function loadGetInitialProps(Component, ctx) {
       const message = "\"".concat(getDisplayName(Component), ".getInitialProps()\" is defined as an instance method - visit https://err.sh/zeit/next.js/get-initial-props-as-an-instance-method for more information.");
       throw new Error(message);
     }
-  } // when called from _app `ctx` is nested in `ctx`
+  } // when called from app `ctx` is nested in `ctx`
 
 
   const res = ctx.res || ctx.ctx && ctx.ctx.res;
@@ -3741,9 +3741,9 @@ exports.SUPPORTS_PERFORMANCE_USER_TIMING = exports.SUPPORTS_PERFORMANCE && typeo
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/pages/_app.js":
+/***/ "./node_modules/next/dist/pages/app.js":
 /*!**********************************************!*\
-  !*** ./node_modules/next/dist/pages/_app.js ***!
+  !*** ./node_modules/next/dist/pages/app.js ***!
   \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3834,7 +3834,7 @@ let warnUrl;
 
 if (true) {
   warnContainer = (0, _utils.execOnce)(() => {
-    console.warn("Warning: the `Container` in `_app` has been deprecated and should be removed. https://err.sh/zeit/next.js/app-container-deprecated");
+    console.warn("Warning: the `Container` in `app` has been deprecated and should be removed. https://err.sh/zeit/next.js/app-container-deprecated");
   });
   warnUrl = (0, _utils.execOnce)(() => {
     console.error("Warning: the 'url' property is deprecated. https://err.sh/zeit/next.js/url-deprecated");
@@ -6677,4 +6677,4 @@ module.exports = dll_129a35c7ec57967eb265;
 /***/ })
 
 },[["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_app&absolutePagePath=next%2Fdist%2Fpages%2F_app!./","static/runtime/webpack.js"]]]);
-//# sourceMappingURL=_app.js.map
+//# sourceMappingURL=app.js.map

@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\_error.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\error.js"],{
 
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
@@ -1974,13 +1974,13 @@ for (var i = 0; i < DOMIterables.length; i++) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/_error", function() {
-      var mod = __webpack_require__(/*! next/dist/pages/_error */ "./node_modules/next/dist/pages/_error.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/error", function() {
+      var mod = __webpack_require__(/*! next/dist/pages/error */ "./node_modules/next/dist/pages/error.js")
       if(true) {
-        module.hot.accept(/*! next/dist/pages/_error */ "./node_modules/next/dist/pages/_error.js", function() {
-          if(!next.router.components["/_error"]) return
-          var updatedPage = __webpack_require__(/*! next/dist/pages/_error */ "./node_modules/next/dist/pages/_error.js")
-          next.router.update("/_error", updatedPage)
+        module.hot.accept(/*! next/dist/pages/error */ "./node_modules/next/dist/pages/error.js", function() {
+          if(!next.router.components["/error"]) return
+          var updatedPage = __webpack_require__(/*! next/dist/pages/error */ "./node_modules/next/dist/pages/error.js")
+          next.router.update("/error", updatedPage)
         })
       }
       return mod
@@ -2330,9 +2330,9 @@ exports.default = () => {
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/pages/_error.js":
+/***/ "./node_modules/next/dist/pages/error.js":
 /*!************************************************!*\
-  !*** ./node_modules/next/dist/pages/_error.js ***!
+  !*** ./node_modules/next/dist/pages/error.js ***!
   \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2458,4 +2458,4 @@ module.exports = dll_129a35c7ec57967eb265;
 /***/ })
 
 },[["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=next%2Fdist%2Fpages%2F_error!./","static/runtime/webpack.js"]]]);
-//# sourceMappingURL=_error.js.map
+//# sourceMappingURL=error.js.map
