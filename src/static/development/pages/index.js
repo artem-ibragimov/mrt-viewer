@@ -12600,7 +12600,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
+/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25126,6 +25126,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
 
+ // import { NoSsr } from '@material-ui/core';
 
 
 
@@ -25149,38 +25150,38 @@ const theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["crea
   } = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])('RU');
 
   const onSearch = query => {
-    setVideos(query ? _staticResources__WEBPACK_IMPORTED_MODULE_8__["default"].filter(name => name.includes(query)) : _staticResources__WEBPACK_IMPORTED_MODULE_8__["default"]);
+    setVideos(query ? filter(_staticResources__WEBPACK_IMPORTED_MODULE_8__["default"], query) : _staticResources__WEBPACK_IMPORTED_MODULE_8__["default"]);
   };
 
   return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_5___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 26
     },
     __self: undefined
   }, __jsx("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 27
     },
     __self: undefined
   }, "Suby")), __jsx(_material_ui_styles__WEBPACK_IMPORTED_MODULE_4__["ThemeProvider"], {
     theme: theme,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 29
     },
     __self: undefined
   }, __jsx(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 30
     },
     __self: undefined
   }), __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 31
     },
     __self: undefined
   }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_0__["default"], {
@@ -25201,6 +25202,11 @@ const theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["crea
     __self: undefined
   }))));
 });
+
+function filter(list, query) {
+  const q = query.toLowerCase();
+  return list.filter(s => s.toLowerCase().includes(q));
+}
 
 /***/ }),
 
@@ -25669,17 +25675,7 @@ let timestamp = 0;
     videoRef.current && console.error(videoRef.current.error);
   };
 
-  const stepBack = e => {
-    if (!videoRef.current || e.keyCode !== LEFT_ARROW_KEYCODE) {
-      return;
-    } // timestamp = videoRef.current.currentTime;
-
-
-    videoRef.current.currentTime = timestamp - STEP;
-  };
-
   return __jsx("video", {
-    onKeyDown: stepBack,
     preload: "auto",
     ref: videoRef,
     controls: true,
@@ -25690,7 +25686,7 @@ let timestamp = 0;
     onTimeUpdate: onTimeUpdate,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 47
     },
     __self: undefined
   }, __jsx("source", {
@@ -25698,7 +25694,7 @@ let timestamp = 0;
     type: "video/mp4",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 57
     },
     __self: undefined
   }), __jsx(_Player_Track__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -25707,7 +25703,7 @@ let timestamp = 0;
     locale: videoLocale,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 59
     },
     __self: undefined
   }), __jsx(_Player_Track__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -25716,7 +25712,7 @@ let timestamp = 0;
     locale: props.locale,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 60
     },
     __self: undefined
   }), "} Sorry, your browser doesn't support embedded videos.");
@@ -25870,9 +25866,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VideoCard_PlayCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/VideoCard/PlayCard */ "./src/VideoCard/PlayCard.tsx");
 /* harmony import */ var _VideoCard_PosterCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/VideoCard/PosterCard */ "./src/VideoCard/PosterCard.tsx");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Search */ "./src/Search.tsx");
 var _jsxFileName = "c:\\project\\suby\\src\\VideoCard.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -25915,11 +25913,15 @@ const VideoCard = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => {
 
   const onPlay = () => {
     setPlayer(true);
-  };
+    Object(_Search__WEBPACK_IMPORTED_MODULE_4__["search"])(title);
+  }; // search video name for hiding others
+
 
   const onClose = () => {
     setPlayer(false);
-  };
+    Object(_Search__WEBPACK_IMPORTED_MODULE_4__["search"])('');
+  }; // search for showing others videos
+
 
   const controlsProps = {
     className: controlsClass,
@@ -25940,7 +25942,7 @@ const VideoCard = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => {
       playerProps: playerProps,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 30
       },
       __self: undefined
     });
@@ -25953,7 +25955,7 @@ const VideoCard = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => {
     onPlay: onPlay,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 37
     },
     __self: undefined
   });
@@ -26041,6 +26043,48 @@ const Controls = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => __j
 
 /***/ }),
 
+/***/ "./src/VideoCard/Header.tsx":
+/*!**********************************!*\
+  !*** ./src/VideoCard/Header.tsx ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Search */ "./src/Search.tsx");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
+var _jsxFileName = "c:\\project\\suby\\src\\VideoCard\\Header.tsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const Header = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => {
+  const cats = props.title.split('/');
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, cats.slice(0, cats.length - 1).map(c => __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    style: {
+      cursor: 'pointer'
+    },
+    key: c,
+    component: "span",
+    onClick: () => {
+      props.close && props.close();
+      Object(_Search__WEBPACK_IMPORTED_MODULE_1__["search"])(c);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: undefined
+  }, "".concat(Object(_Search__WEBPACK_IMPORTED_MODULE_1__["fromHash"])(c), " / "))));
+});
+/* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
 /***/ "./src/VideoCard/PlayCard.tsx":
 /*!************************************!*\
   !*** ./src/VideoCard/PlayCard.tsx ***!
@@ -26055,9 +26099,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Player */ "./src/Player.tsx");
 /* harmony import */ var _VideoCard_Controls__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/VideoCard/Controls */ "./src/VideoCard/Controls.tsx");
-/* harmony import */ var _VideoCard_Title__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/VideoCard/Title */ "./src/VideoCard/Title.tsx");
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
-/* harmony import */ var _material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/CardActions */ "./node_modules/@material-ui/core/esm/CardActions/index.js");
+/* harmony import */ var _VideoCard_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/VideoCard/Header */ "./src/VideoCard/Header.tsx");
+/* harmony import */ var _VideoCard_Title__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/VideoCard/Title */ "./src/VideoCard/Title.tsx");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
+/* harmony import */ var _material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/CardActions */ "./node_modules/@material-ui/core/esm/CardActions/index.js");
 
 var _jsxFileName = "c:\\project\\suby\\src\\VideoCard\\PlayCard.tsx";
 
@@ -26068,37 +26113,45 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-const PlayCard = Object(react__WEBPACK_IMPORTED_MODULE_1__["memo"])(props => __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_5__["default"], {
+
+const PlayCard = Object(react__WEBPACK_IMPORTED_MODULE_1__["memo"])(props => __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_6__["default"], {
   className: props.className,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 11
-  },
-  __self: undefined
-}, __jsx(_Player__WEBPACK_IMPORTED_MODULE_2__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props.playerProps, {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 12
   },
   __self: undefined
-})), __jsx(_material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_6__["default"], {
+}, __jsx(_Player__WEBPACK_IMPORTED_MODULE_2__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props.playerProps, {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 13
   },
   __self: undefined
-}, __jsx(_VideoCard_Title__WEBPACK_IMPORTED_MODULE_4__["default"], {
-  title: props.title,
-  close: props.controlsProps.onClose,
+})), __jsx(_material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7__["default"], {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 14
   },
   __self: undefined
-}), __jsx(_VideoCard_Controls__WEBPACK_IMPORTED_MODULE_3__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props.controlsProps, {
+}, __jsx(_VideoCard_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  title: props.title,
+  close: props.controlsProps.onClose,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 15
+  },
+  __self: undefined
+}), __jsx(_VideoCard_Title__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  title: props.title,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 16
+  },
+  __self: undefined
+}), __jsx(_VideoCard_Controls__WEBPACK_IMPORTED_MODULE_3__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props.controlsProps, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 17
   },
   __self: undefined
 })))));
@@ -26120,9 +26173,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VideoCard_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/VideoCard/Title */ "./src/VideoCard/Title.tsx");
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
 /* harmony import */ var _material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/CardActions */ "./node_modules/@material-ui/core/esm/CardActions/index.js");
+/* harmony import */ var _VideoCard_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/VideoCard/Header */ "./src/VideoCard/Header.tsx");
 var _jsxFileName = "c:\\project\\suby\\src\\VideoCard\\PosterCard.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -26132,10 +26187,17 @@ const PosterCard = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => _
   raised: true,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 9
   },
   __self: undefined
-}, __jsx("img", {
+}, __jsx(_VideoCard_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  title: props.title,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 10
+  },
+  __self: undefined
+}), __jsx("img", {
   src: "".concat(props.root, "/poster.png"),
   onClick: props.onPlay,
   style: {
@@ -26143,13 +26205,13 @@ const PosterCard = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => _
   },
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9
+    lineNumber: 11
   },
   __self: undefined
 }), __jsx(_material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_3__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 10
+    lineNumber: 12
   },
   __self: undefined
 }, __jsx(_VideoCard_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -26157,7 +26219,7 @@ const PosterCard = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => _
   play: props.onPlay,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 11
+    lineNumber: 13
   },
   __self: undefined
 }))));
@@ -26185,23 +26247,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const Title = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => {
-  const cats = props.title.split('/');
-  const name = cats.pop() || '';
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, cats.map(c => __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    style: {
-      cursor: 'pointer'
-    },
-    key: c,
-    onClick: () => {
-      props.close && props.close();
-      Object(_Search__WEBPACK_IMPORTED_MODULE_1__["search"])(c);
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: undefined
-  }, Object(_Search__WEBPACK_IMPORTED_MODULE_1__["fromHash"])(c), " /")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  const name = props.title.split('/').pop() || '';
+  return __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
     style: {
       cursor: 'pointer'
     },
@@ -26210,10 +26257,10 @@ const Title = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 7
     },
     __self: undefined
-  }, Object(_Search__WEBPACK_IMPORTED_MODULE_1__["fromHash"])(name)));
+  }, Object(_Search__WEBPACK_IMPORTED_MODULE_1__["fromHash"])(name));
 });
 /* harmony default export */ __webpack_exports__["default"] = (Title);
 
@@ -26228,11 +26275,11 @@ const Title = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(props => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (['[EN]/No_Country_For_Old_Men/Coin_Toss']);
+/* harmony default export */ __webpack_exports__["default"] = (['[EN]/No_Country_For_Old_Men/Coin_Toss', '[EN]/Sherlock_Holmes/A_Game_of_Shadows/Meeting_Moriarty']);
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!**********************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=c%3A%5Cproject%5Csuby%5Cpages%5Cindex.tsx ***!
   \**********************************************************************************************************/
@@ -26255,5 +26302,5 @@ module.exports = dll_129a35c7ec57967eb265;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
