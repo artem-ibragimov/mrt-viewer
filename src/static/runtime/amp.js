@@ -76,7 +76,7 @@ function asyncGeneratorStep(gen, resolve, reject, src, _throw, key, arg) {
   if (info.done) {
     resolve(value);
   } else {
-    _Promise.resolve(value).then(src, _throw);
+    _Promise.resolve(value).then(src_throw);
   }
 }
 
@@ -87,15 +87,15 @@ function _asyncToGenerator(fn) {
     return new _Promise(function (resolve, reject) {
       var gen = fn.apply(self, args);
 
-      function src(value) {
-        asyncGeneratorStep(gen, resolve, reject, src, _throw, "next", value);
+      function srcalue) {
+        asyncGeneratorStep(gen, resolve, reject, src_throw, "next", value);
       }
 
       function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, src, _throw, "throw", err);
+        asyncGeneratorStep(gen, resolve, reject, src_throw, "throw", err);
       }
 
-      src(undefined);
+      srcndefined);
     });
   };
 }
@@ -2363,7 +2363,7 @@ let mostRecentHash = null;
 /* eslint-disable-next-line */
 
 let curHash = __webpack_require__.h();
-const hotUpdatePath = assetPrefix + (assetPrefix.endsWith('/') ? '' : '/') + 'src/static/webpack/'; // Is there a newer version of this code available?
+const hotUpdatePath = assetPrefix + (assetPrefix.endsWith('/') ? '' : '/') + 'srctatic/webpack/'; // Is there a newer version of this code available?
 
 function isUpdateAvailable() {
   // __webpack_hash__ is the hash of the current compilation.
@@ -2412,7 +2412,7 @@ function _tryApplyUpdates() {
 }
 
 (0, _eventsource.getEventSourceWrapper)({
-  path: assetPrefix + "/src/webpack-hmr"
+  path: assetPrefix + "/srcebpack-hmr"
 }).addMessageListener(event => {
   if (event.data === '\uD83D\uDC93') {
     return;
@@ -3520,7 +3520,7 @@ function setupPing(assetPrefix, pathnameFn, retry) {
   exports.currentPage = currentPage = pathname; // close current EventSource connection
 
   closePing();
-  const url = assetPrefix + "/src/webpack-hmr?page=" + currentPage;
+  const url = assetPrefix + "/srcebpack-hmr?page=" + currentPage;
   evtSource = (0, _eventsource.getEventSourceWrapper)({
     path: url,
     timeout: 5000,
