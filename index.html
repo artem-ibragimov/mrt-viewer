@@ -13,44 +13,38 @@
             left: 0;
             right: 0;
             bottom: 0;
-            overflow: hidden;
-         }
-
-         div#container {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            padding: 5px;
-            border: 2px dashed gray;
-         }
-
-         div#controls {
-            flex-basis: 200px;
-            border: 2px dashed blue;
-         }
-
-         div#editor {
-            width: 100%;
-            /* height: 100%; */
-            display: flex;
-            flex-direction: row;
-            border: 2px dashed firebrick;
+            overflow-x: hidden;
          }
 
          div.resizable {
-            border: 1px solid black;
-            min-height: 256px;
+            width: 512px;
+            height: 512px;
+            box-sizing: border-box;
+            border-bottom: 1px dashed black;
+            border-right: 1px solid black;
             resize: both;
             overflow-y: auto;
             cursor: pointer;
          }
 
+         div#container {
+            flex-direction: row;
+            display: flex;
+            box-sizing: border-box;
+            width: 100%;
+         }
+
+         div#editor {
+            box-sizing: border-box;
+         }
+
+         div#controls {
+            box-sizing: border-box;
+         }
+
          div#scene {
+            box-sizing: border-box;
             flex-grow: 1;
-            display: none;
-            border: 2px dashed green;
-            /* height: 100%; */
          }
 
          canvas {
@@ -63,20 +57,14 @@
    </head>
 
    <body>
+      <div id="controls">
+         <input id="getterControl" type="file" multiple />
+         <!-- <input id="contrastControl" type="range" min="0.1" max="1" value="0.7" step="0.1" /> -->
+         <button id="createControl">Create ConvexGeometry</button>
+      </div>
       <div id='container'>
-         <div id="editor">
-            <div id="controls">
-               <input id="getterControl" type="file" multiple />
-               <input id="contrastControl" type="range" min="0.1" max="1" value="0.7" step="0.1" />
-               <button id="createControl">Create ConvexGeometry</button>
-            </div>
-            <div class="resizable">
-               <canvas id="editorCanvas"> Canvas is not available</canvas>
-            </div>
-         </div>
-         <div id="scene">
-            <canvas id="sceneCanvas"> Canvas is not available </canvas>
-         </div>
+         <div id="editor" class="resizable"> </div>
+         <div id="scene" class="resizable"> </div>
       </div>
    </body>
 
