@@ -58,14 +58,19 @@
 
    <body>
       <div id="controls">
+         <label for="getterControl">Выбрать снимки</label>
          <input id="getterControl" type="file" multiple />
          <!-- <input id="contrastControl" type="range" min="0.1" max="1" value="0.7" step="0.1" /> -->
-         <button id="createControl">Create ConvexGeometry</button>
+         <button id="createControl">Построить</button>
+         <button id="saveControl">Сохранить</button>
+         <label for="uploadControl">Восстановить</label>
+         <input id="uploadControl" type="file" accept="application/json" />
       </div>
       <div id='container'>
          <div id="editor" class="resizable"> </div>
          <div id="scene" class="resizable"> </div>
       </div>
+      <pre id="output"></pre>
    </body>
 
 </html>
