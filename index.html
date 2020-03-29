@@ -34,11 +34,21 @@
             width: 100%;
          }
 
-         div#editor {
-            box-sizing: border-box;
+         div#console {
+            position: absolute;
+            height: auto;
+            bottom: 0;
+            right: 0;
+            left: 0;
          }
 
-         div#controls {
+         div#console #output {
+            display: inline-block;
+            max-height: 200px;
+            overflow-y: scroll;
+         }
+
+         div#editor {
             box-sizing: border-box;
          }
 
@@ -50,27 +60,77 @@
          canvas {
             width: 100%;
             height: 97%;
+            cursor: crosshair;
             box-sizing: border-box;
+            border: lightgrey 1px solid;
+
+         }
+
+         .panel {
+            box-sizing: border-box;
+            background: #EBEBEB;
+            border-top: 1px solid #afafaf;
+            border-bottom: 1px solid #afafaf;
+         }
+
+         .button {
+            display: inline-block;
+            cursor: pointer;
+            padding: 3px;
+            margin-right: 3px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #9a9a9a;
+            text-decoration: none;
+            font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+            font-weight: normal;
+            color: #000;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.09);
+            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #EBEBEB), color-stop(0.5, #ECECEC), color-stop(0.5, #F3F3F3), color-stop(1, #FFFFFF));
+            background-image: -moz-linear-gradient(center bottom, #EBEBEB 0%, #ECECEC 50%, #F3F3F3 50%, #FFFFFF 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 0 rgba(0, 0, 0, 0.09);
+         }
+
+         .button:active {
+            box-shadow: inset 0 16px 0 rgba(0, 115, 215, 0.3), inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 0 rgba(0, 0, 0, 0.09);
+            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #D3F7FD), color-stop(0.5, #87C5FB), color-stop(0.5, #A1D1F9), color-stop(1, #D4E9FC));
+            background-image: -moz-linear-gradient(center bottom, #D3F7FD 0%, #87C5FB 50%, #A1D1F9 50%, #D4E9FC 100%);
+            border-top-color: #5a5caf;
+            border-bottom-color: #52536f;
+            border-left-color: #56578f;
+            border-right-color: #56578f;
          }
       </style>
       <script async="true" src="./app.min.js"></script>
    </head>
 
    <body>
-      <div id="controls">
-         <label for="getterControl">Выбрать снимки</label>
-         <input id="getterControl" type="file" multiple />
-         <!-- <input id="contrastControl" type="range" min="0.1" max="1" value="0.7" step="0.1" /> -->
-         <button id="createControl">Построить</button>
-         <button id="saveControl">Сохранить</button>
-         <label for="uploadControl">Восстановить</label>
-         <input id="uploadControl" type="file" accept="application/json" />
+      <div id="controls" class='panel'>
+         <label class='button' id="getterControlLabel" for="getterControl">Выбрать снимки</label>
+         <input id="getterControl" type="file" style="display:none;" multiple />
+
+         <label for="contrastControl">Контраст</label>
+         <input id="contrastControl" type="range" min="-50" max="50" value="0" step="5" />
+
+         <label for="gridControl">Сетка</label>
+         <input id="gridControl" type='checkbox' />
+         <label id="gridStepControlLabel" for="gridStepControl" style='display:none;'>Шаг сетки, мм</label>
+         <input id="gridStepControl" type="number" min="1" max="10" value="5" step="1" style='display:none;' />
+
+         <button id="createControl" class='button'>Построить</button>
+         <button id="saveControl" class='button'>Сохранить</button>
+
+         <label class='button' for="uploadControl">Восстановить</label>
+         <input id="uploadControl" type="file" style="display:none;" accept="application/json" />
       </div>
       <div id='container'>
          <div id="editor" class="resizable"> </div>
          <div id="scene" class="resizable"> </div>
       </div>
-      <pre id="output"></pre>
+      <div id="console" class='panel'>
+         <button id="clearControl" class="button">🞫</button>
+         <div id="output"></div>
+      </div>
    </body>
 
 </html>
