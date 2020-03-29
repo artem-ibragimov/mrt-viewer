@@ -106,6 +106,11 @@
 
    <body>
       <div id="controls" class='panel'>
+         <button id="saveControl" class='button'>Сохранить</button>
+
+         <label for="uploadControl" class='button'>Восстановить</label>
+         <input id="uploadControl" type="file" style="display:none;" accept="application/json" />
+
          <label class='button' id="getterControlLabel" for="getterControl">Выбрать снимки</label>
          <input id="getterControl" type="file" style="display:none;" multiple />
 
@@ -115,13 +120,9 @@
          <label for="gridControl">Сетка</label>
          <input id="gridControl" type='checkbox' />
          <label id="gridStepControlLabel" for="gridStepControl" style='display:none;'>Шаг сетки, мм</label>
-         <input id="gridStepControl" type="number" min="1" max="10" value="5" step="1" style='display:none;' />
+         <input id="gridStepControl" type="number" min="1" max="15" value="10" step="1" style='display:none;' />
 
          <button id="createControl" class='button'>Построить</button>
-         <button id="saveControl" class='button'>Сохранить</button>
-
-         <label class='button' for="uploadControl">Восстановить</label>
-         <input id="uploadControl" type="file" style="display:none;" accept="application/json" />
       </div>
       <div id='container'>
          <div id="editor" class="resizable"> </div>
