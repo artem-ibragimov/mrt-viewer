@@ -48,6 +48,13 @@
             overflow-y: scroll;
          }
 
+         div#zoom {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            border: 1px solid gray
+         }
+
          div#editor {
             box-sizing: border-box;
          }
@@ -125,6 +132,7 @@
          <button id="createControl" class='button'>Построить</button>
       </div>
       <div id='container'>
+         <div id="zoom"></div>
          <div id="editor" class="resizable"> </div>
          <div id="scene" class="resizable"> </div>
       </div>
