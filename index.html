@@ -108,6 +108,22 @@
             border-left-color: #56578f;
             border-right-color: #56578f;
          }
+
+         div#export {
+            padding: 30px;
+         }
+
+         table {
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+         }
+
+         table td,
+         table th {
+            text-align: center;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+         }
       </style>
       <script async="true" src="./app.min.js"></script>
    </head>
@@ -125,17 +141,28 @@
          <label for="contrastControl">Контраст</label>
          <input id="contrastControl" type="range" min="-50" max="50" value="0" step="5" />
 
+         <label for="coordsNumberingControl">Нумерация точек</label>
+         <input id="coordsNumberingControl" type='checkbox' />
+
+         <label for="pointSizeControl">Размер точки, px</label>
+         <input id="pointSizeControl" type="number" min="1" max="5" value="2" step="1" />
+
          <label for="gridControl">Сетка</label>
          <input id="gridControl" type='checkbox' />
+
          <label id="gridStepControlLabel" for="gridStepControl" style='display:none;'>Шаг сетки, мм</label>
          <input id="gridStepControl" type="number" min="1" max="15" value="10" step="1" style='display:none;' />
 
+         <button id="exportCoordsControl" class='button'>Экспорт точек</button>
          <button id="createControl" class='button'>Построить</button>
       </div>
       <div id='container'>
          <div id="zoom"></div>
          <div id="editor" class="resizable"> </div>
          <div id="scene" class="resizable"> </div>
+         <div id="export" hidden>
+            <table id="coordsTable"></table>
+         </div>
       </div>
       <div id="console" class='panel'>
          <button id="clearControl" class="button">🞫</button>
