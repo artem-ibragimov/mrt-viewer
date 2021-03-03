@@ -17,12 +17,16 @@
             background: #ddd;
          }
 
+         input[type=number] {
+            max-width: 30px;
+         }
+
          div.resizable {
             width: 512px;
             height: 512px;
             box-sizing: border-box;
             border-bottom: 1px dashed black;
-            border-right: 1px solid black;
+            border-left: 1px solid black;
             resize: both;
             overflow-y: auto;
             cursor: pointer;
@@ -35,25 +39,24 @@
             width: 100%;
          }
 
-         div#console {
-            position: absolute;
-            height: auto;
-            bottom: 0;
-            right: 0;
-            left: 0;
+         div#sidebar {
+            box-sizing: border-box;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
          }
 
-         div#console #output {
-            display: inline-block;
-            max-height: 200px;
-            overflow-y: scroll;
+         div#sidebar div {
+            box-sizing: border-box;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
          }
 
-         div#zoom {
-            position: fixed;
-            width: 150px;
-            height: 150px;
-            border: 1px solid gray
+         div#sidebar div#zoom {
+            padding: 0;
+            min-height: 200px;
+            border-bottom: 1px solid black;
          }
 
          div#editor {
@@ -66,11 +69,8 @@
          }
 
          canvas {
-            width: 100%;
-            height: 97%;
             cursor: crosshair;
             box-sizing: border-box;
-            border: lightgrey 1px solid;
 
          }
 
@@ -110,10 +110,13 @@
          }
 
          div#export {
-            padding: 30px;
          }
 
          table {
+            width: 100%;
+         }
+
+         table thead {
             border-left: 1px solid black;
             border-top: 1px solid black;
          }
@@ -157,16 +160,22 @@
          <button id="createControl" class='button'>Построить</button>
       </div>
       <div id='container'>
-         <div id="zoom"></div>
+         <div id="sidebar">
+            <div id="zoom"></div>
+            <div>
+               <label for="layerNumberControl">№ слоя</label>
+               <input id="layerNumberControl" type="number">
+            </div>
+            <div>
+               <label for="squareControl">S, mm &sup2;</label>
+               <input id="squareControl" type="number" min="0">
+            </div>
+            <div id="export" hidden>
+               <table id="coordsTable"></table>
+            </div>
+         </div>
          <div id="editor" class="resizable"> </div>
          <div id="scene" class="resizable"> </div>
-         <div id="export" hidden>
-            <table id="coordsTable"></table>
-         </div>
-      </div>
-      <div id="console" class='panel'>
-         <button id="clearControl" class="button">🞫</button>
-         <div id="output"></div>
       </div>
    </body>
 
