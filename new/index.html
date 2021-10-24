@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <meta charset="utf-8">
+      <title>MRT</title>
+      <style>
+         #editor {
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-x: hidden;
+            background: #ddd;
+         }
+
+         .main_container {
+            display: flex;
+            justify-content: space-between;
+         }
+
+         input[type=number] {
+            max-width: 50px;
+         }
+
+         .resizable {
+            box-sizing: border-box;
+            border-bottom: 1px dashed black;
+            border-left: 1px solid black;
+            resize: both;
+            overflow-y: auto;
+            cursor: pointer;
+         }
+
+
+         /* div#scene {
+            box-sizing: border-box;
+            flex-grow: 1;
+         } */
+
+         canvas {
+            /* cursor: crosshair; */
+            box-sizing: border-box;
+         }
+
+         .panel {
+            /* min-width: 125px; */
+            box-sizing: border-box;
+            background: #EBEBEB;
+            border: 1px solid #afafaf;
+         }
+
+         .vertical_panel {
+            display: flex;
+            /* max-height: calc(100% - 50px); */
+            min-height: 150px;
+            flex-direction: column;
+         }
+
+         .sets {
+            display: flex;
+            width: 100%;
+         }
+
+         .right_panel {
+            padding: 5px;
+         }
+
+         .left_panel {}
+
+         .zoom {
+            border-bottom: 1px solid black;
+         }
+
+         .set_workspaces {
+            width: 100%;
+         }
+
+         .set_preview_list {
+            overflow-y: scroll;
+            padding-right: 7px;
+            /* scrollbar */
+         }
+
+         input,
+         button {
+            box-sizing: border-box;
+         }
+
+         .set_preview_list input {
+            max-width: calc(100% - 25px);
+         }
+
+         .set_preview_list .set_preview_header {
+            display: flex;
+         }
+
+         .set_preview {
+            width: 100px;
+            /* height: 100px; */
+         }
+
+         .workspaces {
+            display: flex;
+            flex-wrap: wrap;
+         }
+
+         .workspace {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black
+         }
+
+         .workspace canvas {
+            cursor: crosshair;
+         }
+
+         .button {
+            display: inline-block;
+            cursor: pointer;
+            padding: 3px;
+            margin-right: 3px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #9a9a9a;
+            text-decoration: none;
+            font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+            font-weight: normal;
+            color: #000;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.09);
+            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #EBEBEB), color-stop(0.5, #ECECEC), color-stop(0.5, #F3F3F3), color-stop(1, #FFFFFF));
+            background-image: -moz-linear-gradient(center bottom, #EBEBEB 0%, #ECECEC 50%, #F3F3F3 50%, #FFFFFF 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 0 rgba(0, 0, 0, 0.09);
+         }
+
+         .button:active {
+            box-shadow: inset 0 16px 0 rgba(0, 115, 215, 0.3), inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 0 rgba(0, 0, 0, 0.09);
+            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #D3F7FD), color-stop(0.5, #87C5FB), color-stop(0.5, #A1D1F9), color-stop(1, #D4E9FC));
+            background-image: -moz-linear-gradient(center bottom, #D3F7FD 0%, #87C5FB 50%, #A1D1F9 50%, #D4E9FC 100%);
+            border-top-color: #5a5caf;
+            border-bottom-color: #52536f;
+            border-left-color: #56578f;
+            border-right-color: #56578f;
+         }
+
+         .tools {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+         }
+
+         input[type="range"] {
+            writing-mode: bt-lr;
+            -webkit-appearance: slider-vertical;
+         }
+
+         table {
+            width: 100%;
+         }
+
+         table thead {
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+         }
+
+         table td,
+         table th {
+            text-align: center;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+         }
+
+         .hidden {
+            display: none;
+         }
+      </style>
+      <script async="true" src="./app.min.js"></script>
+   </head>
+
+   <body>
+      <div id="editor"></div>
+      <!-- <div class='panel'>
+         <button id="saveControl" class='button'>Сохранить</button>
+
+         <label for="uploadControl" class='button'>Восстановить</label>
+         <input id="uploadControl" type="file" style="display:none;" accept="application/json" />
+
+         <label class='button' for="getterControl">Выбрать снимки</label>
+         <input id="getterControl" type="file" style="display:none;" multiple />
+
+         <label for="contrastControl">Контраст</label>
+         <input id="contrastControl" type="range" min="-50" max="50" value="0" step="5" />
+
+         <label for="coordsNumberingControl">Нумерация точек</label>
+         <input id="coordsNumberingControl" type='checkbox' />
+
+         <label for="pointSizeControl">Размер точки, px</label>
+         <input id="pointSizeControl" type="number" min="1" max="5" value="2" step="1" />
+
+         <label for="gridControl">Сетка</label>
+         <input id="gridControl" type='checkbox' />
+
+         <label id="gridStepControlLabel" for="gridStepControl" style='display:none;'>Шаг сетки, мм</label>
+         <input id="gridStepControl" type="number" min="1" max="15" value="10" step="1" style='display:none;' />
+
+         <button id="exportCoordsControl" class='button'>Экспорт точек</button>
+         <button id="createControl" class='button'>Построить</button>
+      </div>
+      <div id='container'>
+         <div id="sidebar">
+            <div id="zoom"></div>
+            <div>
+               <label for="layerNumberControl">№ слоя</label>
+               <input id="layerNumberControl" type="number">
+            </div>
+            <div>
+               <label for="squareControl">S, mm &sup2;</label>
+               <input id="squareControl" type="number" min="0">
+            </div>
+            <div>
+               <label for="volumeControl">V, mm &sup3;</label>
+               <input id="volumeControl" type="number" min="0">
+            </div>
+            <div id="export" hidden>
+               <table id="coordsTable"></table>
+            </div>
+         </div>
+         <div id="editor" class="resizable"> </div>
+         <div id="scene" class="resizable"> </div>
+      </div> -->
+   </body>
+
+</html>
