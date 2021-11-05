@@ -5,6 +5,14 @@
       <meta charset="utf-8">
       <title>MRT</title>
       <style>
+         body,
+         html {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+         }
+
          #editor {
             position: absolute;
             padding: 0;
@@ -141,6 +149,7 @@
          }
 
          .tools {
+            cursor: pointer;
             position: fixed;
             bottom: 0;
             right: 0;
@@ -150,7 +159,6 @@
          .pointLabel {
             padding: 1px 10px;
             margin-right: 5px;
-            cursor: pointer;
             box-sizing: border-box;
          }
 
